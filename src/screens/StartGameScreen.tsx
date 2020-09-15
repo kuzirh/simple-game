@@ -12,7 +12,7 @@ import Colors from '../../constants/colors';
 import Card from '../components/Card';
 import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
-const StartGameScreen = (props: any) => {
+const StartGameScreen = (props: { onStartGame: any }) => {
   const [enteredValue, setEnteredValue] = useState<string>('');
   const [userConfirmation, setUserConfirmation] = useState<boolean>(false);
   const [selectedNumber, setSelectedNumber] = useState<number>();
@@ -50,7 +50,7 @@ const StartGameScreen = (props: any) => {
         <NumberContainer>{selectedNumber}</NumberContainer>
         <Button
           title='START GAME!'
-          onPress={() => console.log('STARTING....')}
+          onPress={() => props.onStartGame(selectedNumber)}
         />
       </Card>
     );
