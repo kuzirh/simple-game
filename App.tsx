@@ -22,7 +22,6 @@ export default function App() {
     );
   } else if (guessRounds > 0) {
     content = <GameOverScreen />;
-    console.log('should the game be over?');
   }
   return (
     <View style={styles.screen}>
