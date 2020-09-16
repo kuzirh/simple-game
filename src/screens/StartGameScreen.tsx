@@ -13,6 +13,7 @@ import Card from '../components/Card';
 import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
 import BodyText from '../components/BodyText';
+import MainButton from '../components/MainButton';
 const StartGameScreen = (props: { onStartGame: any }) => {
   const [enteredValue, setEnteredValue] = useState<string>('');
   const [userConfirmation, setUserConfirmation] = useState<boolean>(false);
@@ -49,10 +50,9 @@ const StartGameScreen = (props: { onStartGame: any }) => {
       <Card style={styles.summaryContainer}>
         <Text>You selected</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button
-          title='START GAME!'
-          onPress={() => props.onStartGame(selectedNumber)}
-        />
+        <MainButton onHandleClick={() => props.onStartGame(selectedNumber)}>
+          START GAME!
+        </MainButton>
       </Card>
     );
   }
@@ -66,7 +66,7 @@ const StartGameScreen = (props: { onStartGame: any }) => {
       <View style={styles.screen}>
         <Text style={styles.title}>Start a New Game!</Text>
         <Card style={styles.inputContainer}>
-          <BodyText>Select a Number</BodyText>
+          <BodyText style={{}}>Select a Number</BodyText>
           <Input
             style={styles.input}
             blurOnSubmit
