@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Image, StyleSheet, Button } from 'react-native';
+import { View, Image, StyleSheet, Button, Text } from 'react-native';
 import BodyText from '../components/BodyText';
 import TitleText from '../components/TitleText';
-
+import Colors from '../../constants/colors';
 const GameOverScreen = (props: {
   roundsNumber: number;
   number: number;
@@ -13,14 +13,20 @@ const GameOverScreen = (props: {
       <TitleText>The Game is Over!</TitleText>
       <View style={styles.imageContainer}>
         <Image
-          source={require('../../assets/success.png')}
+          // source={require('../../assets/success.png')}
+          source={{
+            uri:
+              'https://i.kym-cdn.com/entries/icons/original/000/002/691/sings.jpg',
+          }}
           style={styles.image}
           resizeMode='cover'
         />
       </View>
 
-      <BodyText>Number of rounds: {props.roundsNumber}</BodyText>
-      <BodyText>Number was: {props.number}</BodyText>
+      <BodyText style={styles.resultText}>
+        Opponent took <Text style={styles.highlight}>{props.roundsNumber}</Text>{' '}
+        rounds to guess <Text style={styles.highlight}>{props.number}</Text>
+      </BodyText>
       <Button title='NEW GAME?' onPress={props.onRestart} />
     </View>
   );
@@ -44,5 +50,10 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     marginVertical: 30,
   },
+  highlight: {
+    color: Colors.primary,
+    fontFamily: 'open-sans-bold',
+  },
+  resultText: { textAlign: 'center', fontSize: 20 },
 });
 export default GameOverScreen;
