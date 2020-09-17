@@ -124,14 +124,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: '60%',
+    width: '100%',
   },
   listContainer: {
-    width: '80%',
+    width: '60%',
     flex: 1,
   },
   list: {
-    alignItems: 'center',
     justifyContent: 'flex-end',
     flexGrow: 1,
   },
